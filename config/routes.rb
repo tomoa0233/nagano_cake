@@ -12,5 +12,7 @@ Rails.application.routes.draw do
    registrations: "admin/devise/passwords"
   }
   root to: 'admin/homes#top'
-
+  namespace :admin do
+   resources :genres, only: [:index, :create, :edit, :update]
+  end
 end
