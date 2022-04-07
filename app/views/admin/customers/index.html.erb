@@ -1,0 +1,37 @@
+<h5>会員一覧</h5>
+
+
+<div class="container">
+  <div class="row">
+   <div class="col-lg-2"></div>
+   <div class="col-lg-8">
+    <table class="table">
+       <thead><tr>
+         <th scope="col-lg-1">会員ID</th>
+         <th scope="col-lg-2">氏名</th>
+         <th scope="col-lg-3">メールアドレス</th>
+         <th scope="col-lg-2">ステータス</th>
+       </tr></thead>
+        <% @customers.each do |customer| %>
+       <tbody>
+       <tr>
+        <td scope="col-lg-1"><%= customer.id %></td>
+        <td scope="col-lg-2"><%= link_to customer.name_display, admin_customer_path(customer.id) %></td>
+        <td scope="col-lg-3"><%= customer.email %></td>
+        <td scope="col-lg-2">
+           <% if customer.is_active == true %>
+            <%= "有効" %>
+           <% else %>
+            <%= "退会" %>
+           <% end %>
+        </td>
+       </tr>
+       </tbody>
+      <% end %>
+     </table>
+     </div>
+    </div>
+
+    <div class="col-lg-2"></div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="container">
+ <div class="row">
+
+  <%= @customer.name_display %>さんの会員詳細
+  </div>
+
+  <div class="row">
+  <div class="col-lg-6">
+   <table class="table table-borderless">
+    <tbody>
+      <tr>
+       <td scope="col-lg-1">会員ID</td>
+       <td scope="col-lg-5"><%= @customer.id %></td>
+      </tr>
+      <tr>
+        <td scope="col-lg-1">氏名</td>
+        <td scope="col-lg-5"><%= @customer.name_display %></td>
+      </tr>
+      <tr>
+        <td scope="col-lg-1">フリガナ</td>
+        <td scope="col-lg-5"><%= @customer.name_kana_display %></td>
+      </tr>
+      <tr>
+        <td scope="col-lg-1">郵便番号</td>
+        <td scope="col-lg-5"><%= @customer.postal_code %></td>
+      </tr>
+      <tr>
+        <td scope="col-lg-1">住所</td>
+        <td scope="col-lg-5"><%= @customer.address %></td>
+      </tr>
+      <tr>
+        <td scope="col-lg-1">電話番号</td>
+        <td scope="col-lg-5"><%= @customer.telephone_number %></td>
+      </tr>
+      <tr>
+        <td scope="col-lg-1">メールアドレス</td>
+        <td scope="col-lg-5"><%= @customer.email %></td>
+      </tr>
+      <tr>
+        <td scope="col-lg-1">会員ステータス</td>
+        <td scope="col-lg-5">
+          <% if @customer.is_active == true %>
+           <%= "有効" %>
+          <% else %>
+           <%= "退会" %>
+          <% end %></td>
+      </tr>
+     </tbody>
+    </table>
+    </div>
+   </div>
+
+
+  <div class="row">
+  <div class="col-lg-2"></div>
+  <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-sm btn-success" %>  <%= link_to "注文一覧履歴を見る", class: "btn btn-sm btn-primary" %>
+ </div>
+</div>
