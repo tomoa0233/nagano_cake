@@ -5,20 +5,20 @@
   <div class="row">
    <div class="col-lg-1"></div>
    <div class="col-lg-10">
-    <table class="table">
-       <thead><tr>
+    <table class="table-light">
+       <thead class="thead-secondary"><tr>
          <th scope="col-lg-1">商品ID</th>
          <th scope="col-lg-3">商品名</th>
          <th scope="col-lg-1">税抜価格</th>
          <th scope="col-lg-3">ジャンル</th>
          <th scope="col-lg-2">ステータス</th>
        </tr></thead>
-       <% @items.each do |item| %>
        <tbody>
+        <% @items.each do |item| %>
          <tr>
            <td scope="col-lg-1"><%= item.id %></td>
            <td scope="col-lg-3"><%= link_to item.name, admin_item_path(item.id) %></td>
-           <td scope="col-lg-1"><%= item.price %></td>
+           <td scope="col-lg-1"><%= item.price.to_s(:delimited) %></td>
            <td scope="col-lg-3"><%= item.genre.name %></td>
            <td scope="col-lg-2">
            <% if item.is_active == true %>
@@ -28,8 +28,9 @@
            <% end %>
            </td>
          </tr>
+         <% end %>
        </tbody>
-      <% end %>
+       <%= paginate @items %>
      </table>
      </div>
     </div>

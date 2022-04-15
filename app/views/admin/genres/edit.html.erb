@@ -1,6 +1,23 @@
-<h5>ジャンル編集</h5>
-<%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
- <%= f.label :genre, "ジャンル名" %>
-  <%= f.text_field :name, autofocus: true, placeholder:"ジャンル名" %>
-<%= f.submit '変更を保存', class: "btn btn-sm btn-success" %>
-<% end %>
+<div class="container">
+ <div class="row">
+ <div class="col-lg-6">
+  <table class="table table-borderless">
+   <thead>
+    <tr>
+     <th class="col-lg-1"></th>
+     <th class="col-lg-5"><h5>ジャンル編集</h5></th>
+    </tr>
+   </thead>
+   <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
+   <tbody>
+   <tr>
+    <td class="col-lg-2"><%= f.label :genre, "ジャンル名" %></td>
+    <td class="col-lg-2"><%= f.text_field :name, autofocus: true, placeholder:"ジャンル名" %></td>
+    <td class="col-lg-2"><%= f.submit '変更を保存', class: "btn btn-sm btn-success" %></td>
+   </tr>
+   <% end %>
+   </tbody>
+   </table>
+   </div>
+   </div>
+   </div>

@@ -1,0 +1,42 @@
+<div class="container">
+ <div class="row">
+   会員情報編集
+    <div class="col-lg-8">
+     <table class="table table-borderless">
+       <%= form_with model: @customer, url: public_customers_my_page_path(@customer), method: :patch do |f| %>
+     <tbody>
+       <tr>
+        <td scope="col-lg-1">氏名</td>
+        <td scope="col-lg-7"><%= f.text_field :last_name %> <%= f.text_field :first_name %></td>
+       </tr>
+       <tr>
+        <td scope="col-lg-1">フリガナ</td>
+        <td scope="col-lg-7"><%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %></td>
+       </tr>
+       <tr>
+        <td scope="col-lg-1">郵便番号</td>
+        <td scope="col-lg-7"><%= f.text_field :postal_code %></td>
+       </tr>
+       <tr>
+        <td scope="col-lg-1">住所</td>
+        <td scope="col-lg-7"><%= f.text_field :address %></td>
+       </tr>
+       <tr>
+        <td scope="col-lg-1">電話番号</td>
+        <td scope="col-lg-7"><%= f.text_field :telephone_number %></td>
+       </tr>
+       <tr>
+        <td scope="col-lg-1">メールアドレス</td>
+        <td scope="col-lg-7"><%= f.text_field :email %></td>
+       </tr>
+       <tr>
+        <td scope="col-lg-1"></td>
+        <td scope="col-lg-3"><%= link_to "編集内容を保存", public_customers_my_page_path, class: "btn btn-sm btn-success" %></td>
+        <td scope="col-lg-3"><%= link_to "退会する", public_customers_unsubscribe_path, class: "btn btn-sm btn-danger" %></td>
+       </tr>
+       <% end %>
+      </tbody>
+      </table>
+     </div>
+    </div>
+      </div>

@@ -10,7 +10,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    @items = Item.paginate(page: params[:page], per_page: 10)
   end
 
   def show

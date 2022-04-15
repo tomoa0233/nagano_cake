@@ -1,1 +1,26 @@
-<%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+ <div class="container">
+  <div class="row">
+   <h5>注文履歴一覧</h5>
+    <div class="col-lg-10">
+     <table class="table table-bordered border-dark">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col-lg-3">購入日時</th>
+          <th scope="col-lg-2">購入者</th>
+          <th scope="col-lg-2">注文個数</th>
+          <th scope="col-lg-2">注文ステータス</th>
+        </tr>
+      <tbody>
+        <% @orders.each do |order| %>
+         <tr>
+           <td scope="col-lg-3"><%= %></td>
+           <td scope="col-lg-2"><%= order.name %></td>
+           <td scope="col-lg-2"><%= order.amount %></td>
+           <td scope="col-lg-3"></td>
+         </tr>
+        <% end %>
+      </tbody>
+    </table>
+   </div>
+  </div>
+</div>
