@@ -1,13 +1,9 @@
 <div class="container">
  <div class="row">
+  <h5>ジャンル編集</h5>
+ </div>
  <div class="col-lg-6">
   <table class="table table-borderless">
-   <thead>
-    <tr>
-     <th class="col-lg-1"></th>
-     <th class="col-lg-5"><h5>ジャンル編集</h5></th>
-    </tr>
-   </thead>
    <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
    <tbody>
    <tr>

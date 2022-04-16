@@ -24,7 +24,7 @@
    </tr>
    <tr>
     <td scope="col-lg-1">税込価格(税抜価格)</td>
-    <td scope="col-lg-4"><%= @item.with_tax_price %> (<%= @item.price.to_s(:delimited) %>) 円
+    <td scope="col-lg-4"><%= @item.with_tax_price.to_s(:delimited) %> (<%= @item.price.to_s(:delimited) %>) 円
    </tr>
    <tr>
     <td scope="col-lg-1">販売ステータス</td>

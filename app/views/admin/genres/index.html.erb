@@ -1,18 +1,27 @@
-
-   <h5>ジャンル一覧・追加</h3>
-<br>
-<%= form_with model: @genre, url: admin_genres_path do |f| %>
- <%= f.label :genre, "ジャンル名" %>
-  <%= f.text_field :name, placeholder:"ジャンル名" %>
-<%= f.submit '新規登録', class: "btn btn-sm btn-success" %>
-<% end %>
-<br>
-
 <div class="container">
+ <div class="row">
+   <h5>ジャンル一覧・追加</h5>
+  </div>
+  <div class="row">
+   <div class="col-lg-6">
+    <table class="table table-borderless">
+     <%= form_with model: @genre, url: admin_genres_path do |f| %>
+     <tbody>
+      <tr>
+       <td class="col-lg-2"><%= f.label :genre, "ジャンル名" %></td>
+       <td class="col-lg-2"><%= f.text_field :name, placeholder:"ジャンル名" %></td>
+       <td class="col-lg-2"><%= f.submit '新規登録', class: "btn btn-sm btn-success" %></td>
+      </tr>
+      <% end %>
+     </tbody>
+    </table>
+   </div>
+  </div>
+
   <div class="row">
    <div class="col-lg-4">
     <table class="table">
-       <thead class="thead-"><tr>
+       <thead class="thead-light"><tr>
          <th scope="col"></th>
          <th scope="col">ジャンル</th>
          <th scope="col-2"></th>
@@ -30,6 +39,6 @@
       <% end %>
      </table>
     </div>
-   <div class="col-lg-6"></div>
+   <div class="col-lg-8"></div>
   </div>
 </div>
