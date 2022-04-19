@@ -1,14 +1,10 @@
 <div class="container">
 <div class="row">
+ <h5>配送先編集</h5>
+</div>
+<div class="row">
   <div class="col-lg-10">
     <table class="table table-borderless">
-      <thead>
-        <tr>
-          <th class="col-lg-1"></th>
-          <th class="col-lg-5">配送先編集</th>
-          <th class="col-lg-4"></th>
-        </tr>
-      </thead>
       <tbody>
         <%= form_with model: @address, url: public_address_path(@address.id), method: :patch do |f| %>
         <tr>
@@ -30,5 +26,4 @@
       </tbody>
      </table>
     </div>
-   </div>
 </div>

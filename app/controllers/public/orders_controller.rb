@@ -29,7 +29,10 @@ class Public::OrdersController < ApplicationController
     #送られた情報を注文テーブルに格納。格納後、注文詳細テーブルに格納。カート内削除
     @order = Order.new(order_params)
     @order.save
-    @cart_item = current_customer.cart_items
+    @cart_items = current_customer.cart_items
+    @cart_items.each do |cart_item|
+      OrderDetail.create(item_id: cart_item.item_id, purchase_price: cart_item.item.price, amount: cart_item.amount, order_id: @order.id)
+    end
     @cart_items.destroy_all
     redirect_to public_orders_thanks_path
   end
@@ -42,6 +45,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @postage = 800
+    @cart_items = current_customer.cart_items.all
+    @order = Order.find(params[:id])
+    @sum = 0
+    @cart_items.each do |cart_item|
+      @sum += cart_item.subtotal
+    end
+    @total = @sum + @postage
   end
 
   private

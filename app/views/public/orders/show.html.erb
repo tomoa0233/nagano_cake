@@ -1,0 +1,71 @@
+<div class="container">
+ <div class="row mb-2">
+  <h5>注文履歴詳細</h5>
+ </div>
+ <div class="row">
+  <div class="col-lg-6">
+   <h6>注文情報</h6>
+    <table class="table table-bordered border-dark">
+     <tbody>
+      <tr>
+       <td class="col-lg-2 table-secondary">注文日</td>
+       <td class="col-lg-4"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+      <tr>
+       <td class="col-lg-2 table-secondary">配送先</td>
+       <td class="col-lg-4"><%= @order.order_address %></td>
+      </tr>
+      <tr>
+       <td class="col-lg-2 table-secondary">支払方法</td>
+       <td class="col-lg-4"><%= @order.payment_method_i18n %></td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+   <div class="col-lg-3">
+    <h6>請求情報</h6>
+    <table class="table table-bordered border-dark">
+     <tbody>
+      <tr>
+       <td class="col-lg-2 table-secondary">商品合計</td>
+       <td class="col-lg-1"><%= @sum.to_s(:delimited) %></td>
+      </tr>
+      <tr>
+       <td class="col-lg-2 table-secondary">配送料</td>
+       <td class="col-lg-1"><%= @postage %></td>
+      </tr>
+      <tr>
+       <td class="col-lg-2 table-secondary">ご請求額</td>
+       <td class="col-lg-1"><%= @total.to_s(:delimited) %></td>
+      </tr>
+     </tbody>
+    </table>
+  </div>
+ </div>
+
+ <div class="row mb-2">
+  <div class="col-lg-8">
+   <h6>注文内容</h6>
+   <table class="table table-bordered border-dark">
+    <tbody>
+     <tr>
+      <td class="col-lg-4 table-secondary">商品</td>
+      <td class="col-lg-2 table-secondary">単価(税込)</td>
+      <td class="col-lg-1 table-secondary">個数</td>
+      <td class="col-lg-1 table-secondary">小計</td>
+     </tr>
+      <% @sum = 0 %>
+      <% @cart_items.each do |cart_item| %>
+       <tr>
+        <td class="col-lg-4"><%= cart_item.item.name %></td>
+        <td class="col-lg-2"><%= cart_item.item.with_tax_price %></td>
+        <td class="col-lg-1"><%= cart_item.amount %></td>
+        <td class="col-lg-1"><%= cart_item.subtotal %></td>
+       </tr>
+       <% @sum += cart_item.subtotal %>
+       <% end %>
+      </tbody>
+     </table>
+  </div>
+ </div>
+</div>

@@ -1,40 +1,38 @@
- <div class="row">
-  <div class="col-lg-3"></div>
-  <div class="col-lg-5">
-   <table class="table table-borderless">
-     <thead>
-       <div class="col-lg-5"><h5>ログイン</h5></div>
-       <h5>会員の方はこちらからログイン</h5>
-     </thead>
-     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <tbody>
-      <tr>
-        <td scope="col-lg-2">メールアドレス</td>
-        <td scope="col-lg-3"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com" %></td>
-      </tr>
-      <tr>
-        <td scope="col-lg-2">パスワード</td>
-        <td scope="col-lg-3"><%= f.password_field :password, autocomplete: "current-password" %></td>
-      </tr>
-       <tr>
-         <td class="col-lg-2"></td>
-         <td class="col-lg-3"><%= f.submit "ログイン", class: "btn btn-sm btn-primary" %></td>
-       </tr>
-      <% end %>
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-<h4>会員登録がお済みでない方</h4>
-こちらから新規登録を行ってください。
-
-<%= render "public/shared/links" %>
-
-     </tbody>
-    </table>
-   </div>
+<%= form_with model: @customer, url: session_path(resource_name), local: true do |f| %>
+<div class="container">
+ <div class="row mb-2">
+  <div class="col-lg-12">
+   <h4>ログイン</h4>
   </div>
+ </div>
+ <div class="row mb-2">
+  <div class="col-lg-1"></div>
+  <div class="col-lg-11"><h5>会員の方はこちらからログイン</h5></div>
+ </div>
+ <div class="row mb-2">
+   <div class="col-lg-2"></div>
+   <div class="col-lg-2">メールアドレス</div>
+   <div class="col-lg-3"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com" %></div>
+   <div class="col-lg-4"></div>
+ </div>
+ <div class="row mb-2">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-2">パスワード</div>
+    <div class="col-lg-3"><%= f.password_field :password, autocomplete: "current-password" %></div>
+    <div class="col-lg-5"></div>
+ </div>
+ <div class="row mb-4">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-4"><%= f.submit "ログイン", class: "btn btn-sm btn-primary" %></div>
+    <div class="col-lg-5"></div>
+ </div>
+ <div class="row mb-2">
+  <div class="col-lg-1"></div>
+  <div class="col-lg-11"><h5>会員登録がお済みでない方</h5></div>
+ </div>
+ <div class="row mb-2">
+  <div class="col-lg-2"></div>
+  <div class="col-lg-10">こちらから新規登録を行ってください。<%= render "public/shared/links" %></div>
+ </div>
 </div>
+<% end %>
