@@ -39,7 +39,7 @@
  </div>
  <div class="row mb-2">
   <div class="col-lg-1"></div>
-  <div class="col-lg-7"><%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %></div>
+  <div class="col-lg-7"><%= f.select :address_id, options_from_collection_for_select(current_customer.addresses.all, :id, :address_display) %></div>
  </div>
  <div class="row ml-4">
   <div class="col-lg-7"><h6><%= f.radio_button :is_address, "new_address" %> 新しいお届け先</h6></div>

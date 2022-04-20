@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2022_04_12_055839) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
-    t.string "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x000000000617e5e8>"
+    t.string "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x00000000042f0590>"
   end
 
   create_table "items", force: :cascade do |t|
