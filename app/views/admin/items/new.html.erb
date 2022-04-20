@@ -7,7 +7,7 @@
      <table class="table table-borderless">
 
       <tbody>
-       <%= form_with model: @item, url: admin_items_path do |f| %>
+       <%= form_with model: @item, url: admin_items_pat do |f| %>
        <tr>
         <td scope="col-lg-1">商品画像</td>
         <td scope="col-lg-4"><%= f.attachment_field :image, placeholder:"ファイルを選択" %></td>
@@ -44,6 +44,7 @@
        </tr>
       <% end %>
     </tbody>
+    </table>
    </div>
    <div class="col-lg-4"></div>
   </div>

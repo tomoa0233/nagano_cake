@@ -38,6 +38,8 @@ Rails.application.routes.draw do
    get '/' => 'homes#top'
    patch 'order_details/:id' => 'order_details#update'
 
+
+   resources  :orders, only: [:show]
    resources :genres, except: [:new, :delete, :show]
    resources :items, except: [:delete]
    resources :customers, except: [:new, :delete, :create]

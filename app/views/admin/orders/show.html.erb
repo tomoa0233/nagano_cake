@@ -4,51 +4,71 @@
    <h5>注文履歴詳細</h5>
   </div>
   <div class="row">
+   <div class="col-lg-8">
    <table class="table table-borderless">
-    <% @orders.each do |order| %>
     <tbody>
      <tr>
-      <td class="col-lg-3">購入者</td>
-      <td class="col-lg-"><%= order.name %></td>
+      <td class="col-lg-2">購入者</td>
+      <td class="col-lg-6"><%= @order.name %></td>
      </tr>
      <tr>
-      <td class="col-lg-3">注文日</td>
-      <td class="col-lg-"><%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+      <td class="col-lg-2">注文日</td>
+      <td class="col-lg-6"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
      </tr>
      <tr>
-      <td class="col-lg-3">配送先</td>
-      <td class="col-lg-"><%= order.order_address %></td>
+      <td class="col-lg-2">配送先</td>
+      <td class="col-lg-6"><%= @order.order_address %></td>
      </tr>
      <tr>
-      <td class="col-lg-3">支払方法</td>
-      <td class="col-lg-"><%= order.payment_method %></td>
+      <td class="col-lg-2">支払方法</td>
+      <td class="col-lg-6"><%= @order.payment_method_i18n %></td>
      </tr>
     </tbody>
-   <% end %>
    </table>
   </div>
+  </div>
   <div class="row">
-   <div class="col-lg-9">
+   <div class="col-lg-7">
     <table class="table table-bordered border-dark">
      <thead class="thead-light">
       <tr>
-       <th class="col-lg-2">商品名</th>
-       <th class="col-lg-2">単価(税込)</th>
+       <th class="col-lg-3">商品名</th>
+       <th class="col-lg-1">単価(税込)</th>
        <th class="col-lg-1">数量</th>
        <th class="col-lg-1">小計</th>
-       <th class="col-lg-1"></th>
       </tr>
      </thead>
      <tbody>
-      <% %>
+      <% @order_details.each do |order_detail| %>
        <tr>
-        <td class="col-lg-2"></td>
-        <td class="col-lg-2"></td>
-        <td class="col-lg-1"></td>
-        <td class="col-lg-1"></td>
-        <td class="col-lg-1"></td>
-      </tr>
+        <td class="col-lg-3"><%= order_detail.item.name %></td>
+        <td class="col-lg-1"><%= order_detail.item.with_tax_price %></td>
+        <td class="col-lg-1"><%= order_detail.amount %></td>
+        <td class="col-lg-1"><%= order_detail.subtotal %></td>
+       </tr>
       <% end %>
      </tbody>
+    </table>
     </div>
+    <div class="col-lg-4">
+     <table class="table table-borderless">
+      <tbody>
+       <tr>
+        <td class="col-lg-2">商品合計</td>
+        <td class="col-lg-2"><%= @sum %></td>
+       </tr>
+       <tr>
+        <td class="col-lg-2">送料</td>
+        <td class="col-lg-2"><%= @postage %></td>
+       </tr>
+       <tr>
+        <td class="col-lg-2">請求金額合計</td>
+        <td class="col-lg-2"><%= @total %></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+
+   </div>
+  </div>
  </div>
